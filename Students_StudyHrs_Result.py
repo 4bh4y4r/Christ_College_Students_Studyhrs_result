@@ -16,11 +16,18 @@ hours = st.number_input(
     value=5.0
 )
 
+
+attendance = st.number_input(
+    "Enter Attendance",
+    min_value = 0.0,
+    max_value = 100.0,
+    value = 75.0
+
 if st.button("Predict"):
 
     student = pd.DataFrame(
-        [[hours]],
-        columns=["StudyHours"]
+        [[hours,attendance]],
+        columns=["StudyHours","Attendance"]
     )
 
     prediction = model.predict(student)
